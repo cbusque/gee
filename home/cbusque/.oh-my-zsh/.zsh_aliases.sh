@@ -109,7 +109,7 @@ aliase()
 {
 vim ~/.oh-my-zsh/.zsh_aliases.sh
 source ~/.oh-my-zsh/.zsh_aliases.sh
-diff ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
+diff ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh > /dev/null
 if [ "$status" = 1 ]
 then
 cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh

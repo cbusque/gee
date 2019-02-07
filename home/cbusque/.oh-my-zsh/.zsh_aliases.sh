@@ -109,10 +109,14 @@ aliase()
 {
 vim ~/.oh-my-zsh/.zsh_aliases.sh
 source ~/.oh-my-zsh/.zsh_aliases.sh
+diff ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
+if ![$status]
+then
 cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 git -C ~/gee/home/cbusque/.oh-my-zsh/ add ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 git -C ~/gee/home/cbusque/.oh-my-zsh/ commit -m 'update'
 git -C ~/gee/home/cbusque/.oh-my-zsh/ push
+fi
 }
 sshconf()
 {

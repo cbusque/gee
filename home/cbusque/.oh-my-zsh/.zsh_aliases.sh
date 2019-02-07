@@ -112,7 +112,7 @@ source ~/.oh-my-zsh/.zsh_aliases.sh
 cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 git -C ~/gee/home/cbusque/.oh-my-zsh/ add ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 git -C ~/gee/home/cbusque/.oh-my-zsh/ commit -m 'update'
-git -C push
+git -C ~/gee/home/cbusque/.oh-my-zsh/ push
 }
 sshconf()
 {

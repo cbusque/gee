@@ -117,12 +117,18 @@ git -C ~/gee/home/cbusque/.oh-my-zsh/ push
 sshconf()
 {
 vim ~/.ssh/config
-current=$PWD
 cp ~/.ssh/config ~/gee/home/cbusque/.ssh/config
 git -C cd ~/gee/home/cbusque/ add ~/gee/home/cbusque/.ssh/config
 git -C cd ~/gee/home/cbusque/ commit -m 'update'
 git -C cd ~/gee/home/cbusque/ push
-cd $current
+}
+bashrig()
+{
+vim .bash_navigation
+cp ~/.bash_navigation ~/gee/home/cbusque/.bash_navigation
+git -C cd ~/gee/home/cbusque/ add ~/gee/home/cbusque/.bash_navigation
+git -C cd ~/gee/home/cbusque/ commit -m 'update'
+git -C cd ~/gee/home/cbusque/ push
 }
 pbcopy()
 {

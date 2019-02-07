@@ -121,18 +121,26 @@ fi
 sshconf()
 {
 vim ~/.ssh/config
+diff ~/.ssh/config ~/gee/home/cbusque/.ssh/config
+if [ "$status" = 1 ]
+then
 cp ~/.ssh/config ~/gee/home/cbusque/.ssh/config
 git -C cd ~/gee/home/cbusque/ add ~/gee/home/cbusque/.ssh/config
 git -C cd ~/gee/home/cbusque/ commit -m 'update'
 git -C cd ~/gee/home/cbusque/ push
+fi
 }
 bashrig()
 {
 vim .bash_navigation
+diff ~/.bash_navigation ~/gee/home/cbusque/.bash_navigation
+if [ "$status" = 1 ]
+then
 cp ~/.bash_navigation ~/gee/home/cbusque/.bash_navigation
 git -C cd ~/gee/home/cbusque/ add ~/gee/home/cbusque/.bash_navigation
 git -C cd ~/gee/home/cbusque/ commit -m 'update'
 git -C cd ~/gee/home/cbusque/ push
+fi
 }
 pbcopy()
 {

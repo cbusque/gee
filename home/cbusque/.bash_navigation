@@ -1,0 +1,12 @@
+alias cdd="clear; cd $_home; ls"
+alias cpy='clear; cd /opt/lib/python/; ls'
+alias cads="clear; cd /opt/portal/vendors/$(cat /usr/local/row44/config/airline.cfg | grep airline_id_icao | awk '{print $NF}'); ls"
+alias cpreroll='cd /opt/portal/advertising_meta/items'
+alias rportal='dportalflush all; portal_all restart'
+alias rallj='mediamgt_assets_sync; mediamgt_assets_meta_sync; dportalflush all; portal_all restart'
+alias rall='mediamgt_assets_sync; dportalflush all; portal_all restart'
+alias cbusque='cd /mnt/media_a/__devwork__/cbusque'
+alias clog='cd /var/log'
+alias deploy='tar xvjPf $1'
+alias vc='echo ./vc.sh 4354 fi ice_wow f.txt'
+alias sat="swport_status | grep p-mdu-port_5 | awk '{print $3}'"

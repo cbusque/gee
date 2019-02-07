@@ -110,7 +110,7 @@ aliase()
 vim ~/.oh-my-zsh/.zsh_aliases.sh
 source ~/.oh-my-zsh/.zsh_aliases.sh
 diff ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
-if ! $status
+if [ "$status" != "true"]
 then
 cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 git -C ~/gee/home/cbusque/.oh-my-zsh/ add ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh

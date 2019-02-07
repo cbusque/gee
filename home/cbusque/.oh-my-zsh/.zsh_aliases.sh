@@ -108,6 +108,13 @@ fping 192.168.80.{1..25}
 aliase()
 {
 vim ~/.oh-my-zsh/.zsh_aliases.sh
+current=$PWD
+cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
+cd ~/gee/home/cbusque/.oh-my-zsh/ 
+git commit -m'update'
+git add ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
+git push
+cd $current
 source ~/.oh-my-zsh/.zsh_aliases.sh
 }
 pbcopy()

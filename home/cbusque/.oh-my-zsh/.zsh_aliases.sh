@@ -111,7 +111,7 @@ vim ~/.oh-my-zsh/.zsh_aliases.sh
 current=$PWD
 cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 cd ~/gee/home/cbusque/.oh-my-zsh/ 
-git commit -m'update'
+git commit -m 'update'
 git add ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 git push
 cd $current

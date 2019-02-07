@@ -111,7 +111,7 @@ vim ~/.oh-my-zsh/.zsh_aliases.sh
 source ~/.oh-my-zsh/.zsh_aliases.sh
 cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 git -C ~/gee/home/cbusque/.oh-my-zsh/ add ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
-git -C ~/gee/home/cbusque/.oh-my-zsh/commit -m 'update'
+git -C ~/gee/home/cbusque/.oh-my-zsh/ commit -m 'update'
 git -C push
 }
 sshconf()
@@ -119,10 +119,9 @@ sshconf()
 vim ~/.ssh/config
 current=$PWD
 cp ~/.ssh/config ~/gee/home/cbusque/.ssh/config
-cd ~/gee/home/cbusque/
-git add ~/gee/home/cbusque/.ssh/config
-git commit -m 'update'
-git push
+git -C cd ~/gee/home/cbusque/ add ~/gee/home/cbusque/.ssh/config
+git -C cd ~/gee/home/cbusque/ commit -m 'update'
+git -C cd ~/gee/home/cbusque/ push
 cd $current
 }
 pbcopy()

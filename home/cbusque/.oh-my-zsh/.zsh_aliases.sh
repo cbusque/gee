@@ -111,8 +111,8 @@ vim ~/.oh-my-zsh/.zsh_aliases.sh
 current=$PWD
 cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
 cd ~/gee/home/cbusque/.oh-my-zsh/ 
-git commit -m 'update'
 git add ~/gee/home/cbusque/.oh-my-zsh/.zsh_aliases.sh
+git commit -m 'update'
 git push
 cd $current
 source ~/.oh-my-zsh/.zsh_aliases.sh
@@ -121,10 +121,10 @@ sshconf()
 {
 vim ~/.ssh/config
 current=$PWD
-cp ~/.ssh/config ~/gee/home/cbusque/.ssh/conf
+cp ~/.ssh/config ~/gee/home/cbusque/.ssh/config
 cd ~/gee/home/cbusque/
+git add ~/gee/home/cbusque/.ssh/config
 git commit -m 'update'
-git add ~/gee/home/cbusque/.ssh/conf
 git push
 cd $current
 }

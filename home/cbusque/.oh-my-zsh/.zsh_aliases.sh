@@ -117,6 +117,17 @@ git push
 cd $current
 source ~/.oh-my-zsh/.zsh_aliases.sh
 }
+sshconf()
+{
+vim ~/.ssh/config
+current=$PWD
+cp ~/.ssh/config ~/gee/home/cbusque/.ssh/conf
+cd ~/gee/home/cbusque/
+git commit -m 'update'
+git add ~/gee/home/cbusque/.ssh/conf
+git push
+cd $current
+}
 pbcopy()
 {
 xclip -selection c

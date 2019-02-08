@@ -1,0 +1,45 @@
+#!/bin/bash
+
+
+SSH_CLIENT_IP=$(echo $SSH_CLIENT | awk '{ print $1 }')
+ID_FILE="$HOME/.ssh/key-to-get-home-from-NOC"
+WHOAMI="cbusque"
+
+
+checktails() {
+    ongsm | egrep "$GREP_PATTERN"
+}
+
+msg_home() {
+    ssh -T -i $ID_FILE $WHOAMI@$SSH_CLIENT_IP << EOSSH
+    ~/bin/cronsafe-notify "$1"
+EOSSH
+}
+
+msg_home "Started watching for tails :)"
+
+
+
+while true; do
+
+    WATCHED_TAILS=$(ssh -i ID_FILE $WHOAMI@$SSH_CLIENT_IP 'cat ~/.watched_tails' | grep -v "#")
+   if [[ -z "$WATCHED_TAILS" ]]; then
+        echo "no tails watched... skipping check."
+    else
+
+        GREP_PATTERN="($(echo $WATCHED_TAILS | tr ' ' '|'))"
+        echo -e "will grep \$ongsm with $GREP_PATTERN"
+        TAILS_ON_GSM=$(checktails)
+
+        if [[ ! -z "$TAILS_ON_GSM" ]]; then
+            msg=$(echo -e "Hello :)\non GSM: \n$TAILS_ON_GSM")
+            msg_home "$msg"
+        else
+            echo "no watched tails on GSM"
+        fi
+
+    fi
+
+    sleep 120
+
+done

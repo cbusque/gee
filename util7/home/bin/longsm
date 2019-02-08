@@ -1,0 +1,85 @@
+#!/bin/bash
+#
+# get latencies (via ping) along with ongsm data, using a grep pattern to filter
+#
+# author: nick.payne@globaleagle.com
+
+
+# get filter as arg 1
+filter=$1
+
+# print usage if filter not specified
+if [[ -z $filter ]]; then
+  echo "must specify a grep filter to select which ongsm tails to get latency for"
+  echo "eg.: longsm [pattern] [packets-per-tail] "
+  exit 1
+fi
+
+packets=$2
+
+if [[ -z $packets ]]; then
+    packets=10
+    echo "no packets-per-tail specified as 2nd cli arg, defaulting to 10"
+fi
+
+output_format="%10s:    %-11s %-11s %-11s %-11s %10s %10s\n"
+
+# get the ping analysis (8 packets / 8 seconds seems fine)
+analysis() {
+    tail=$1
+    uptime=$2
+    ping_out=$(ping -c $packets ${tail}g)
+    ping_stats=$(echo "$ping_out" | grep "min/avg/max/mdev" | cut -d ' ' -f 4 | sed -e 's/\// /g')
+    ping_pktloss=$(echo "$ping_out" | grep "packet loss" | sed -E 's/^.* ([[:digit:]]+%) packet loss.*$/\1/')
+    
+    if [[ "100%" == "$ping_pktloss" ]]; then
+	min="--"
+	avg="--"
+	max="--"
+	sdv="--"
+    else 
+	min=$(echo "$ping_stats" | awk '{ print $1 }')
+	avg=$(echo "$ping_stats" | awk '{ print $2 }')
+	max=$(echo "$ping_stats" | awk '{ print $3 }')
+	sdv=$(echo "$ping_stats" | awk '{ print $4 }')
+    fi
+    # use padding t display output nicely
+    printf "$output_format" "$tail" "$min" "$avg" "$max" "$sdv" "$ping_pktloss" "$uptime"
+}
+
+# must match the format of printf given above
+header() {
+    s=$(printf "$output_format" "tail" "min" "avg" "max" "mdev" "packet loss" "uptime")
+    size=${#s}
+    echo "$s"
+    # hack to print size '=' chars, courtesy of https://stackoverflow.com/a/5349796/4785602
+    printf "%${size}s\n" |tr " " "="
+}
+
+# grab tails and uptimes from ongsm output matching the filter
+ongsm_filtered=$(ongsm | egrep "$filter")
+tails_str=$(echo "$ongsm_filtered" | awk '{ print $1 }')
+uptimes_str=$(echo "$ongsm_filtered" | awk '{ print $2 }')
+
+# create parallel arrays of tail-strings, uptimes, and an empty array to store PIDs to wait on
+readarray -t tails <<<"$tails_str"
+readarray -t uptimes <<<"$uptimes_str"
+pids=()
+
+# print a descriptive header
+header
+
+# iterate the array keys (wow that's some ugly syntax!)
+for i in "${!tails[@]}"; do
+    # async spawn analyses, which will print as soon as they return
+    analysis ${tails[${i}]} ${uptimes[${i}]} &
+    # store the PID
+    pids[${i}]=$!
+done
+
+# wait on all PIDs to complete
+for pid in ${pids[*]}; do
+    wait $pid
+done
+
+echo "all tail pings completed"

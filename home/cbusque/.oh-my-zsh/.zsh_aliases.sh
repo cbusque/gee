@@ -125,9 +125,9 @@ diff ~/.ssh/config ~/gee/home/cbusque/.ssh/config
 if [ "$status" = 1 ]
 then
 cp ~/.ssh/config ~/gee/home/cbusque/.ssh/config
-git -C cd ~/gee/home/cbusque/ add ~/gee/home/cbusque/.ssh/config
-git -C cd ~/gee/home/cbusque/ commit -m 'update'
-git -C cd ~/gee/home/cbusque/ push
+git -C  ~/gee/home/cbusque/ add ~/gee/home/cbusque/.ssh/config
+git -C  ~/gee/home/cbusque/ commit -m 'update'
+git -C  ~/gee/home/cbusque/ push
 fi
 }
 bashrig()

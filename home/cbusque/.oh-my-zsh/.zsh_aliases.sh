@@ -120,6 +120,7 @@ fi
 }
 sshconf()
 {
+
 vim ~/.ssh/config
 diff ~/.ssh/config ~/gee/home/cbusque/.ssh/config
 if [ "$status" = 1 ]

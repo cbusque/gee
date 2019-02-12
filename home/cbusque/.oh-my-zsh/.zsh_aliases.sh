@@ -117,7 +117,6 @@ git -C ~/gee/home/cbusque/.oh-my-zsh/ add ~/gee/home/cbusque/.oh-my-zsh/.zsh_ali
 git -C ~/gee/home/cbusque/.oh-my-zsh/ commit -m 'update'
 git -C ~/gee/home/cbusque/.oh-my-zsh/ push
 fi
-echo '2'
 }
 sshconf()
 {

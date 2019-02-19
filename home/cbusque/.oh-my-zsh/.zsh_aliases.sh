@@ -143,10 +143,6 @@ git -C cd ~/gee/home/cbusque/ commit -m 'update'
 git -C cd ~/gee/home/cbusque/ push
 fi
 }
-util7()
-{
-ssh cbusque@192.168.21.26
-}
 pbcopy()
 {
 xclip -selection c

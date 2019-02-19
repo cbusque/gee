@@ -1,0 +1,3 @@
+#!/bin/bash
+
+longsm ^N | sort -nrk 3 | egrep  ' 0%' | tail -n 40 | awk '{print $1}' | tr -d :

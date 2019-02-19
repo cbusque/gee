@@ -183,6 +183,6 @@ scp ~/vc/$2/$VC util7:~ ;
 ssh util7 << EOF
 TAIL="$(best $3)" ;
 echo $TAIL ;
-vcdiff ~/$VC {$TAIL}g ;
+vcdiff ~/$VC ${TAIL}g ;
 EOF
 }

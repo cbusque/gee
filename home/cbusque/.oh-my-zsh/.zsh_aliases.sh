@@ -181,6 +181,8 @@ VC="$(ls -t ~/vc/$2 | head -1)"
 scp ~/vc/$2/$VC util7:~ ;
 #to improve: select a good tail and vcdiff on it
 ssh util7 << EOF
-longsm ^N | sort -nrk 3 | egrep  ' 0%' | tail -n 1 | awk '{print $1}' | tr -d : ;
+TAIL="$(best $3)"
+echo $TAIL
+vcdiff ~/$VC {$TAIL}g
 EOF
 }

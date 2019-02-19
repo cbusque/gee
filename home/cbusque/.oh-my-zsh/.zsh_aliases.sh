@@ -177,7 +177,7 @@ sshuttle -Hvr row44@192.168.80.$1 192.168.32.0/2
 vcdiff(){
 mkdir ~/vc/$2
 scp row44@192.168.80.$1:/mnt/media_a/__devwork__/cbusque/vc/$2/\*.tar.bz2 ~/vc/$2 ;
-VC="${ls -t ~/vc/$2 | head -1}"
+VC="$(ls -t ~/vc/$2 | head -1)"
 scp ~/vc/$2/$VC util7:~ ;
 #to improve: select a good tail and vcdiff on it
 }

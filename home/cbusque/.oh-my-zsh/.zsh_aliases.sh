@@ -174,7 +174,14 @@ viewrig()
 {
 sshuttle -Hvr row44@192.168.80.$1 192.168.32.0/2
 }
-vcdif(){
+vcdiff(){
+# $1 = numero du rig
+# $2 = numero de VC
+# $3 = grep du airline 
+#	pour SWA => N
+#	pour JET => V
+# 	pour ICE => T
+# https://confluence.geemedia.com/display/OPSUPPORT/Airline+cheat+sheet
 mkdir ~/vc/$2
 scp row44@192.168.80.$1:/mnt/media_a/__devwork__/cbusque/vc/$2/\*.tar.bz2 ~/vc/$2 ;
 VC="$(ls -t ~/vc/$2 | head -1)"

@@ -155,6 +155,9 @@ rig ()
     echo -e "Connection to $1 requested...";
     ssh -q $server -t "cd /home/row44;/bin/bash" --rcfile /mnt/media_a/__devwork__/cbusque/.bash_navigation 
 }
+util7(){
+ssh util7
+}
 ovh()
 {
   server="$1"

@@ -183,6 +183,7 @@ scp ~/vc/$2/$VC util7:~ ;
 ssh util7 << EOF
 TAIL="\$(/home/cbusque/bin/besttail $3)" ;
 echo $TAIL ;
-vcdiff ~/$VC ${TAIL}g ;
+thediff = "\$(vcdiff ~/$VC ${TAIL}g)";
+echo $thediff ;
 EOF
 }

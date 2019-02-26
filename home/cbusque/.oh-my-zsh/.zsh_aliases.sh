@@ -150,10 +150,10 @@ xclip -selection c
 rig ()
 {
     server="root@192.168.80.$1";
-    ssh -q $server -t "[ -e /mnt/media_a/__devwork__/$(whoami)/ ] || mkdir -p /mnt/media_a/__devwork__/$(whoami)/";
-    scp ~/.bash_navigation $server:/mnt/media_a/__devwork__/$(whoami)/ || return 1;
+    ssh -q $server -t "[ -e /mnt/media_a/__devwork__/\$(whoami)/ ] || mkdir -p /mnt/media_a/__devwork__/\$(whoami)/";
+    scp ~/.bash_navigation $server:/mnt/media_a/__devwork__/\$(whoami)/ || return 1;
     echo -e "Connection to $1 requested...";
-    ssh -q $server -t "cd /home/row44;export PATH=/usr/local/row44/utils/bin/:$PATH;/bin/bash" --rcfile /mnt/media_a/__devwork__/$(whoami)/.bash_navigation 
+    ssh -q $server -t "cd /home/row44;export PATH=/usr/local/row44/utils/bin/:$PATH;/bin/bash" --rcfile /mnt/media_a/__devwork__/\$(whoami)/.bash_navigation 
 }
 util7(){
 ssh util7

@@ -37,21 +37,6 @@ showimage()
 {
 	#showimage $(whoami) util7 '~/Chase_444_generic_July18_LB_LT_1458x180.jpg'
 ssh $1@$2 "cat $3" | display
-}
-sshpoly()
-{
-echo "is polyssl/any connect active"
-ssh -L20035:localhost:20035 cebus@L4712-04.info.polymtl.ca
-}
-tp2(){
-cd ~/Desktop/cloud/TP2_dave/TP2
-./authServer.sh 5001
-./loadBalancer.sh 127.0.1.1 5001 5002 true
-./server.sh 127.0.1.1 5001 5003 4 0
-./client.sh connect 127.0.1.1 5001 cebus cebus
-./client.sh execute operations-3216 127.0.1.1 cebus cebus
-}
-saga(){
 echo "   ID	   PIN_NUMBER	NAME	SURNAME	 USERNAME	          EMAIL_ADDRESS	           TOTAL_MILES"
 echo "4000070384   49OKTNQqzz   Test    Test     magnus1@tmsoftware.is    magnus1@tmsoftware.is    [INSUFFICIENT]"
 echo "4101265770   hQEivTu5jf   Test    Tes      test@test765.com         test@test765.com         [SUFFICIENT]"
@@ -86,7 +71,7 @@ snx -d
 startsnx()
 {
 snx -d
-echo '1234' | stoken | sed 's/.*\(........\)/\1/' | snx -s 67.142.235.252 -u $(whoami)
+stoken | sed 's/.*\(........\)/\1/' | snx -s 67.142.235.252 -u $(whoami)
 #stoken
 #snx -s 67.142.235.252 -u $(whoami)
 }
@@ -182,7 +167,7 @@ vcdiff(){
 #	pour JET => V
 # 	pour ICE => T
 # https://confluence.geemedia.com/display/OPSUPPORT/Airline+cheat+sheet
-mkdir ~/vc/$2
+mkdir -p  ~/vc/$2
 scp row44@192.168.80.$1:/mnt/media_a/__devwork__/$(whoami)/vc/$2/\*.tar.bz2 ~/vc/$2 ;
 VC="$(ls -t ~/vc/$2 | head -1)"
 scp ~/vc/$2/$VC util7:~ ;

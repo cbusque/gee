@@ -96,38 +96,38 @@ aliase()
 {
 vim ~/.oh-my-zsh/.zsh_aliases.sh
 source ~/.oh-my-zsh/.zsh_aliases.sh
-diff ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/$(whoami)/.oh-my-zsh/.zsh_aliases.sh > /dev/null
+diff ~/.oh-my-zsh/.zsh_aliases.sh ~/cops_aliases/home/user/.oh-my-zsh/.zsh_aliases.sh > /dev/null
 if [ "$status" = 1 ]
 then
-cp ~/.oh-my-zsh/.zsh_aliases.sh ~/gee/home/$(whoami)/.oh-my-zsh/.zsh_aliases.sh
-git -C ~/gee/home/$(whoami)/.oh-my-zsh/ add ~/gee/home/$(whoami)/.oh-my-zsh/.zsh_aliases.sh
-git -C ~/gee/home/$(whoami)/.oh-my-zsh/ commit -m 'update'
-git -C ~/gee/home/$(whoami)/.oh-my-zsh/ push
+cp ~/.oh-my-zsh/.zsh_aliases.sh ~/cops_aliases/home/user/.oh-my-zsh/.zsh_aliases.sh
+git -C ~/cops_aliases/home/user/ add ~/cops_aliases/home/user/.oh-my-zsh/.zsh_aliases.sh
+git -C ~/cops_aliases/home/user/ commit -m 'update'
+git -C ~/cops_aliases/home/user/ push
 fi
 }
 sshconf()
 {
 
 vim ~/.ssh/config
-diff ~/.ssh/config ~/gee/home/$(whoami)/.ssh/config
+diff ~/.ssh/config ~/cops_aliases/home/user/.ssh/config
 if [ "$status" = 1 ]
 then
-cp ~/.ssh/config ~/gee/home/$(whoami)/.ssh/config
-git -C  ~/gee/home/$(whoami)/ add ~/gee/home/$(whoami)/.ssh/config
-git -C  ~/gee/home/$(whoami)/ commit -m 'update'
-git -C  ~/gee/home/$(whoami)/ push
+cp ~/.ssh/config ~/cops_aliases/home/user/.ssh/config
+git -C  ~/cops_aliases/home/user/ add ~/cops_aliases/home/user/.ssh/config
+git -C  ~/cops_aliases/home/user/ commit -m 'update'
+git -C  ~/cops_aliases/home/user/ push
 fi
 }
 bashrig()
 {
 vim .bash_navigation
-diff ~/.bash_navigation ~/gee/home/$(whoami)/.bash_navigation
+diff ~/.bash_navigation ~/cops_aliases/home/user/.bash_navigation
 if [ "$status" = 1 ]
 then
-cp ~/.bash_navigation ~/gee/home/$(whoami)/.bash_navigation
-git -C cd ~/gee/home/$(whoami)/ add ~/gee/home/$(whoami)/.bash_navigation
-git -C cd ~/gee/home/$(whoami)/ commit -m 'update'
-git -C cd ~/gee/home/$(whoami)/ push
+cp ~/.bash_navigation ~/cops_aliases/home/user/.bash_navigation
+git -C cd ~/cops_aliases/home/user/ add ~/cops_aliases/home/user/.bash_navigation
+git -C cd ~/cops_aliases/home/user/ commit -m 'update'
+git -C cd ~/cops_aliases/home/user/ push
 fi
 }
 pbcopy()

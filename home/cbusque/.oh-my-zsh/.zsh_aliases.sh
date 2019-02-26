@@ -37,6 +37,8 @@ showimage()
 {
 	#showimage $(whoami) util7 '~/Chase_444_generic_July18_LB_LT_1458x180.jpg'
 ssh $1@$2 "cat $3" | display
+}
+saga(){
 echo "   ID	   PIN_NUMBER	NAME	SURNAME	 USERNAME	          EMAIL_ADDRESS	           TOTAL_MILES"
 echo "4000070384   49OKTNQqzz   Test    Test     magnus1@tmsoftware.is    magnus1@tmsoftware.is    [INSUFFICIENT]"
 echo "4101265770   hQEivTu5jf   Test    Tes      test@test765.com         test@test765.com         [SUFFICIENT]"

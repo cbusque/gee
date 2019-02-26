@@ -153,7 +153,7 @@ rig ()
     ssh -q $server -t "[ -e /mnt/media_a/__devwork__/cbusque/ ] || mkdir -p /mnt/media_a/__devwork__/cbusque/";
     scp ~/.bash_navigation $server:/mnt/media_a/__devwork__/cbusque/ || return 1;
     echo -e "Connection to $1 requested...";
-    ssh -q $server -t "cd /home/row44;/bin/bash" --rcfile /mnt/media_a/__devwork__/cbusque/.bash_navigation 
+    ssh -q $server -t "cd /home/row44;export PATH=/usr/local/row44/utils/bin/:$PATH;/bin/bash" --rcfile /mnt/media_a/__devwork__/cbusque/.bash_navigation 
 }
 util7(){
 ssh util7
